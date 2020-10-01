@@ -25,8 +25,7 @@ function App() {
     formData.append( "file", fileUpload, fileUpload.name );
     axios({ method: 'post', url: 'http://127.0.0.1:3005/api/file', data: formData })
     .then(({ data }) => {
-      console.log(data);
-      setResults({ ...results, ...data });
+      setResults([ ...results, ...data ]);
     })
   }, [fileUpload]);
 
